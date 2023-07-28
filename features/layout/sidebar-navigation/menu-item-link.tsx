@@ -32,6 +32,7 @@ export const Anchor = styled(Link)`
   color: ${color("gray", 100)};
   text-decoration: none;
 `;
+// transform: ${({ isCollapsed }) => (isCollapsed ? "scaleX(-1)" : "none")}
 
 export const Icon = styled.img`
   width: ${space(6)};
@@ -48,7 +49,7 @@ export function MenuItemLink({
   return (
     <ListItem isActive={isActive}>
       <Anchor href={href}>
-        <Icon src={iconSrc} alt={`${text} icon`} /> {!isCollapsed && text}
+        {<Icon src={iconSrc} alt={`${text} icon`} />} {!isCollapsed && text}{" "}
       </Anchor>
     </ListItem>
   );
