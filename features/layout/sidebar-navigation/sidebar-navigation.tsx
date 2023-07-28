@@ -145,6 +145,7 @@ const LinkList = styled(List)`
 `;
 
 const CollapseMenuItem = styled(MenuItemButton)`
+  transform: ${({ isCollapsed }) => (isCollapsed ? "scaleX(-1)" : "none")};
   display: none;
 
   @media (min-width: ${breakpoint("desktop")}) {
@@ -197,7 +198,7 @@ export function SidebarNavigation() {
             />
             <CollapseMenuItem
               text="Collapse"
-              iconSrc="/icons/arrow-left.svg"
+              iconSrc={"/icons/arrow-left.svg"}
               isCollapsed={isSidebarCollapsed}
               onClick={() => toggleSidebar()}
             />
