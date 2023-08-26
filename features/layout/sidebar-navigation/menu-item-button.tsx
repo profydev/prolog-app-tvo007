@@ -3,14 +3,16 @@ import { Button } from "@features/ui";
 import { ListItem, Anchor, Icon } from "./menu-item-link";
 
 type MenuItemProps = {
+  href?: string;
   className?: string;
   text: string;
   iconSrc: string;
-  onClick: () => void;
+  onClick?: () => void;
   isCollapsed: boolean;
 };
 
 export function MenuItemButton({
+  href,
   className,
   text,
   onClick,
@@ -19,7 +21,7 @@ export function MenuItemButton({
 }: MenuItemProps) {
   return (
     <ListItem className={className}>
-      <Anchor as={Button} onClick={onClick}>
+      <Anchor as={Button} onClick={onClick} href={href}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <Icon src={iconSrc} alt={`${text} icon`} /> {!isCollapsed && text}
       </Anchor>
